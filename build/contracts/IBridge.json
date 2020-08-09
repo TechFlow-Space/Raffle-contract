@@ -1,0 +1,606 @@
+{
+  "fileName": "IBridge.sol",
+  "contractName": "IBridge",
+  "source": "pragma solidity ^0.5.14;\npragma experimental ABIEncoderV2;\n\n\ninterface IBridge {\n    /// Request packet struct is similar packet on Bandchain using to re-calculate result hash.\n    struct RequestPacket {\n        string clientId;\n        uint64 oracleScriptId;\n        bytes params;\n        uint64 askCount;\n        uint64 minCount;\n    }\n\n    /// Response packet struct is similar packet on Bandchain using to re-calculate result hash.\n    struct ResponsePacket {\n        string clientId;\n        uint64 requestId;\n        uint64 ansCount;\n        uint64 requestTime;\n        uint64 resolveTime;\n        uint8 resolveStatus;\n        bytes result;\n    }\n\n    /// Performs oracle state relay and oracle data verification in one go. The caller submits\n    /// the encoded proof and receives back the decoded data, ready to be validated and used.\n    /// @param _data The encoded data for oracle state relay and data verification.\n    function relayAndVerify(bytes calldata _data)\n        external\n        returns (RequestPacket memory, ResponsePacket memory);\n}",
+  "sourcePath": "contracts/interface/IBridge.sol",
+  "sourceMap": "",
+  "deployedSourceMap": "",
+  "abi": [
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "internalType": "bytes",
+          "name": "_data",
+          "type": "bytes"
+        }
+      ],
+      "name": "relayAndVerify",
+      "outputs": [
+        {
+          "components": [
+            {
+              "internalType": "string",
+              "name": "clientId",
+              "type": "string"
+            },
+            {
+              "internalType": "uint64",
+              "name": "oracleScriptId",
+              "type": "uint64"
+            },
+            {
+              "internalType": "bytes",
+              "name": "params",
+              "type": "bytes"
+            },
+            {
+              "internalType": "uint64",
+              "name": "askCount",
+              "type": "uint64"
+            },
+            {
+              "internalType": "uint64",
+              "name": "minCount",
+              "type": "uint64"
+            }
+          ],
+          "internalType": "struct IBridge.RequestPacket",
+          "name": "",
+          "type": "tuple"
+        },
+        {
+          "components": [
+            {
+              "internalType": "string",
+              "name": "clientId",
+              "type": "string"
+            },
+            {
+              "internalType": "uint64",
+              "name": "requestId",
+              "type": "uint64"
+            },
+            {
+              "internalType": "uint64",
+              "name": "ansCount",
+              "type": "uint64"
+            },
+            {
+              "internalType": "uint64",
+              "name": "requestTime",
+              "type": "uint64"
+            },
+            {
+              "internalType": "uint64",
+              "name": "resolveTime",
+              "type": "uint64"
+            },
+            {
+              "internalType": "uint8",
+              "name": "resolveStatus",
+              "type": "uint8"
+            },
+            {
+              "internalType": "bytes",
+              "name": "result",
+              "type": "bytes"
+            }
+          ],
+          "internalType": "struct IBridge.ResponsePacket",
+          "name": "",
+          "type": "tuple"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "ast": {
+    "absolutePath": "contracts/interface/IBridge.sol",
+    "exportedSymbols": {
+      "IBridge": [
+        636
+      ]
+    },
+    "id": 637,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 599,
+        "literals": [
+          "solidity",
+          "^",
+          "0.5",
+          ".14"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:24:1"
+      },
+      {
+        "id": 600,
+        "literals": [
+          "experimental",
+          "ABIEncoderV2"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "25:33:1"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "documentation": null,
+        "fullyImplemented": false,
+        "id": 636,
+        "linearizedBaseContracts": [
+          636
+        ],
+        "name": "IBridge",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "canonicalName": "IBridge.RequestPacket",
+            "id": 611,
+            "members": [
+              {
+                "constant": false,
+                "id": 602,
+                "name": "clientId",
+                "nodeType": "VariableDeclaration",
+                "scope": 611,
+                "src": "212:15:1",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                },
+                "typeName": {
+                  "id": 601,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "212:6:1",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 604,
+                "name": "oracleScriptId",
+                "nodeType": "VariableDeclaration",
+                "scope": 611,
+                "src": "237:21:1",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint64",
+                  "typeString": "uint64"
+                },
+                "typeName": {
+                  "id": 603,
+                  "name": "uint64",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "237:6:1",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint64",
+                    "typeString": "uint64"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 606,
+                "name": "params",
+                "nodeType": "VariableDeclaration",
+                "scope": 611,
+                "src": "268:12:1",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bytes_storage_ptr",
+                  "typeString": "bytes"
+                },
+                "typeName": {
+                  "id": 605,
+                  "name": "bytes",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "268:5:1",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_storage_ptr",
+                    "typeString": "bytes"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 608,
+                "name": "askCount",
+                "nodeType": "VariableDeclaration",
+                "scope": 611,
+                "src": "290:15:1",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint64",
+                  "typeString": "uint64"
+                },
+                "typeName": {
+                  "id": 607,
+                  "name": "uint64",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "290:6:1",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint64",
+                    "typeString": "uint64"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 610,
+                "name": "minCount",
+                "nodeType": "VariableDeclaration",
+                "scope": 611,
+                "src": "315:15:1",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint64",
+                  "typeString": "uint64"
+                },
+                "typeName": {
+                  "id": 609,
+                  "name": "uint64",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "315:6:1",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint64",
+                    "typeString": "uint64"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "RequestPacket",
+            "nodeType": "StructDefinition",
+            "scope": 636,
+            "src": "181:156:1",
+            "visibility": "public"
+          },
+          {
+            "canonicalName": "IBridge.ResponsePacket",
+            "id": 626,
+            "members": [
+              {
+                "constant": false,
+                "id": 613,
+                "name": "clientId",
+                "nodeType": "VariableDeclaration",
+                "scope": 626,
+                "src": "472:15:1",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                },
+                "typeName": {
+                  "id": 612,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "472:6:1",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 615,
+                "name": "requestId",
+                "nodeType": "VariableDeclaration",
+                "scope": 626,
+                "src": "497:16:1",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint64",
+                  "typeString": "uint64"
+                },
+                "typeName": {
+                  "id": 614,
+                  "name": "uint64",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "497:6:1",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint64",
+                    "typeString": "uint64"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 617,
+                "name": "ansCount",
+                "nodeType": "VariableDeclaration",
+                "scope": 626,
+                "src": "523:15:1",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint64",
+                  "typeString": "uint64"
+                },
+                "typeName": {
+                  "id": 616,
+                  "name": "uint64",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "523:6:1",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint64",
+                    "typeString": "uint64"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 619,
+                "name": "requestTime",
+                "nodeType": "VariableDeclaration",
+                "scope": 626,
+                "src": "548:18:1",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint64",
+                  "typeString": "uint64"
+                },
+                "typeName": {
+                  "id": 618,
+                  "name": "uint64",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "548:6:1",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint64",
+                    "typeString": "uint64"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 621,
+                "name": "resolveTime",
+                "nodeType": "VariableDeclaration",
+                "scope": 626,
+                "src": "576:18:1",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint64",
+                  "typeString": "uint64"
+                },
+                "typeName": {
+                  "id": 620,
+                  "name": "uint64",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "576:6:1",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint64",
+                    "typeString": "uint64"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 623,
+                "name": "resolveStatus",
+                "nodeType": "VariableDeclaration",
+                "scope": 626,
+                "src": "604:19:1",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint8",
+                  "typeString": "uint8"
+                },
+                "typeName": {
+                  "id": 622,
+                  "name": "uint8",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "604:5:1",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint8",
+                    "typeString": "uint8"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 625,
+                "name": "result",
+                "nodeType": "VariableDeclaration",
+                "scope": 626,
+                "src": "633:12:1",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bytes_storage_ptr",
+                  "typeString": "bytes"
+                },
+                "typeName": {
+                  "id": 624,
+                  "name": "bytes",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "633:5:1",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_storage_ptr",
+                    "typeString": "bytes"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "ResponsePacket",
+            "nodeType": "StructDefinition",
+            "scope": 636,
+            "src": "440:212:1",
+            "visibility": "public"
+          },
+          {
+            "body": null,
+            "documentation": "Performs oracle state relay and oracle data verification in one go. The caller submits\n the encoded proof and receives back the decoded data, ready to be validated and used.\n @param _data The encoded data for oracle state relay and data verification.",
+            "id": 635,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "relayAndVerify",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 629,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 628,
+                  "name": "_data",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 635,
+                  "src": "955:20:1",
+                  "stateVariable": false,
+                  "storageLocation": "calldata",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_calldata_ptr",
+                    "typeString": "bytes"
+                  },
+                  "typeName": {
+                    "id": 627,
+                    "name": "bytes",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "955:5:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_storage_ptr",
+                      "typeString": "bytes"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "954:22:1"
+            },
+            "returnParameters": {
+              "id": 634,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 631,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 635,
+                  "src": "1011:20:1",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_RequestPacket_$611_memory_ptr",
+                    "typeString": "struct IBridge.RequestPacket"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 630,
+                    "name": "RequestPacket",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 611,
+                    "src": "1011:13:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_RequestPacket_$611_storage_ptr",
+                      "typeString": "struct IBridge.RequestPacket"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 633,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 635,
+                  "src": "1033:21:1",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_ResponsePacket_$626_memory_ptr",
+                    "typeString": "struct IBridge.ResponsePacket"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 632,
+                    "name": "ResponsePacket",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 626,
+                    "src": "1033:14:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_ResponsePacket_$626_storage_ptr",
+                      "typeString": "struct IBridge.ResponsePacket"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1010:45:1"
+            },
+            "scope": 636,
+            "src": "931:125:1",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "external"
+          }
+        ],
+        "scope": 637,
+        "src": "61:997:1"
+      }
+    ],
+    "src": "0:1058:1"
+  },
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "compiler": {
+    "name": "solc",
+    "version": "0.5.17+commit.d19bba13.Emscripten.clang",
+    "optimizer": {
+      "enabled": false,
+      "runs": 200
+    },
+    "evmVersion": "petersburg"
+  }
+}
